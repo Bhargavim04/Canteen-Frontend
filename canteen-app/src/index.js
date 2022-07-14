@@ -4,15 +4,38 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers/rootreducer";
+// Thunk import statements
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware, compose } from "redux";
 
-//create store
+// Persisting store
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+
+// Persisting redux state changes
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// Create store
 const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  persistedReducer,
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
+
+// --create store for counter--
+//const store = createStore(
+//  rootReducer,
+//  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
