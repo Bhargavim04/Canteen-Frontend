@@ -13,7 +13,6 @@ import {Route,Routes,Navigate} from 'react-router-dom';
 import UpdateCustomer from './components/updateCustomer';
 import Product from './components/products';
 import ProductDetails from './components/productDetails';
-
 function App() {
   return (
     <div className="App">
