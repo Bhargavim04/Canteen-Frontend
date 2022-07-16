@@ -1,48 +1,31 @@
-import React from 'react';
-import axios from "axios";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { registerAction } from "../actions/loginactions";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     
-  // Define state using useState
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [cus, setCus] = useState({
     cusName: "",
     cusContactNo: "",
     email: "",
     password: "",
+    role: "",
   });
 
   const handleChange = (event) => {
-    console.log(event.target.name); // returns field name
-    console.log(event.target.value); // retruns filed value
-
-    // copy cus details to newCus obj
     const newCus = { ...cus };
-
     newCus[event.target.name] = event.target.value;
-
-    // update cus obj with newCus obj details
     setCus(newCus);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //axios.post(url, emp);
-    const newCus = {
-      cusName: cus.cusName,
-      cusContactNo: cus.cusContactNo,
-      login: {
-        email: cus.email,
-        password: cus.password,
-      },
-    };
-    axios
-      .post("http://localhost:8081/customer", newCus)
-      .then((res) => {
-        console.log(res);
-        alert(res.data.cusName + "you have Registered Successfully!");
-      })
-      .catch((error) => console.log(error));
+    dispatch(registerAction(cus));
+    alert(cus.cusName +" Registered Successfully!");
+    navigate("/login");
   };
   console.log(cus);
     return ( 
@@ -95,6 +78,22 @@ const Register = () => {
           onChange={handleChange}
           required />
         </div>
+        <label htmlFor="role" className="form-label float-start">
+            Role
+          </label>
+          <select
+            className="form-select mb-3"
+            aria-label="Default select example"
+            id="role"
+            name="role"
+            value={cus.role}
+            onChange={handleChange}
+          >
+            <option selected>Role</option>
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+            <option value="staff">Staff</option>
+          </select>
         <div className="d-grid gap-2">
         <button type="submit" className="btn btn-primary">Submit</button>
         </div>

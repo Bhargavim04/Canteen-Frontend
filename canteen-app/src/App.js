@@ -13,6 +13,8 @@ import {Route,Routes,Navigate} from 'react-router-dom';
 import UpdateCustomer from './components/updateCustomer';
 import Product from './components/products';
 import ProductDetails from './components/productDetails';
+import Logout from './components/logout';
+
 function App() {
   return (
     <div className="App">
@@ -31,6 +33,7 @@ function App() {
         <Route path="/customer/update/:id" element={<UpdateCustomer />} />
         <Route path="/products" element={<Product />} />
         <Route path="/products/get/:id" element={<ProductDetails />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
