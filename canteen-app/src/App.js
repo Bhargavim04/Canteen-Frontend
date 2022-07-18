@@ -14,6 +14,7 @@ import UpdateCustomer from './components/updateCustomer';
 import Product from './components/products';
 import ProductDetails from './components/productDetails';
 import Logout from './components/logout';
+import ProfilePage from './components/profilePage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/products" element={<Product />} />
         <Route path="/products/get/:id" element={<ProductDetails />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

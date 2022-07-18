@@ -16,13 +16,15 @@ const Nav = () => {
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
             <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
-          </li>
+          </li> 
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/foodItems">Food Items</NavLink>
           </li>
+          {login.loggedIn && login.role=="customer" && ( 
           <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/products">Products</NavLink>
+            <NavLink className="nav-link" aria-current="page" to="/address/add">Add Address</NavLink>
           </li>
+          )}
         </ul>
         <form className="d-flex" role="search">
           <input className="form-control me-2" type="search" placeholder="Search Food" aria-label="Search" />

@@ -30,57 +30,62 @@ const Register = () => {
   console.log(cus);
     return ( 
       <div>
-        <form className="w-25 mx-auto border border-primary m-2 px-3 pb-2 shadow-lg p-3 mb-5 bg-body rounded" 
+        <form className="w-25 mx-auto border border-primary m-2 px-3 pb-2 shadow-lg p-3 mb-5 mt-5 bg-body rounded" 
         onSubmit={handleSubmit}>
         <p className="text-center fs-4 fw-bold text-decoration-underline">Registration Form</p>
-        <div className="mb-3">
-           <label htmlFor="cusName" className="form-label ms-2 float-start">
-            Full Name</label>
-           <input type="text" 
-           className="form-control" 
-           id="cusName" 
-           value={cus.cusName}
-           name="cusName"
-           onChange={handleChange}
-           required />
+        
+        <div className="input-group mb-3">
+        <span className="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+        <input type="text" 
+        className="form-control" 
+        placeholder="Full Name"
+        id="cusName" 
+        value={cus.cusName}
+        name="cusName"
+        onChange={handleChange}
+        aria-label="Full Name" 
+        aria-describedby="basic-addon1" />
         </div>
-        <div className="mb-3">
-            <label htmlFor="cusContactNo" className="form-label float-start">
-            Contact Number</label>
-            <input type="text" 
-            className="form-control" 
-            id="cusContactNo"
-            value={cus.cusContactNo}
-            name="cusContactNo"
-            onChange={handleChange} 
-            required />
-          </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label float-start">
-          Email address</label>
-          <input type="email" 
-          className="form-control" 
-          id="email" 
-          aria-describedby="emailHelp"
-          value={cus.email}
-          name="email"
-          onChange={handleChange}
-          required />
+
+      <div className="input-group mb-3">
+        <span className="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
+        <input type="text" 
+        className="form-control" 
+        placeholder="Contact Number"
+        id="cusContactNo"
+        value={cus.cusContactNo}
+        name="cusContactNo"
+        onChange={handleChange} 
+        aria-label="Contact Number" 
+        aria-describedby="basic-addon1" />
         </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label float-start">
-          Password</label>
-          <input type="password" 
-          className="form-control" 
-          id="password" 
-          value={cus.password}
-          name="password"
-          onChange={handleChange}
-          required />
+
+        <div className="input-group mb-3">
+        <span className="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+        <input type="email" 
+        className="form-control" 
+        placeholder="Email Address"
+        id="email"
+        value={cus.email}
+        name="email"
+        onChange={handleChange} 
+        aria-label="Contact Number" 
+        aria-describedby="basic-addon1" />
         </div>
-        <label htmlFor="role" className="form-label float-start">
-            Role
-          </label>
+
+        <div className="input-group mb-3">
+        <span className="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+        <input type="password" 
+        className="form-control" 
+        placeholder="Password"
+        id="password" 
+        value={cus.password}
+        name="password"
+        onChange={handleChange} 
+        aria-label="Password" 
+        aria-describedby="basic-addon1" />
+        </div>
+
           <select
             className="form-select mb-3"
             aria-label="Default select example"
@@ -94,6 +99,7 @@ const Register = () => {
             <option value="admin">Admin</option>
             <option value="staff">Staff</option>
           </select>
+
         <div className="d-grid gap-2">
         <button type="submit" className="btn btn-primary">Submit</button>
         </div>
