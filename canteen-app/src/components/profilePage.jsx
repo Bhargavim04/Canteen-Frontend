@@ -1,24 +1,38 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { getCustomerByIdAction } from '../actions/loginactions';
 
 const ProfilePage = () => {
+  
+  const dispatch = useDispatch();
+  const customer1 = useSelector((state) => state.login.customer);
+  // Dispatch action to get product based on id at the of page loading
+  useEffect(() => {
+    dispatch(getCustomerByIdAction(customer1.cusId));
+  }, []);
+
+  console.log(customer1);
     return ( 
-        <div className="card" mx-auto >
-  <img src="..." className="card-img-top" alt="..." />
-  <div className="card-body">
-    <h5 className="card-title">Card title</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul className="list-group list-group-flush">
-    <li className="list-group-item">An item</li>
-    <li className="list-group-item">A second item</li>
-    <li className="list-group-item">A third item</li>
-  </ul>
-  <div className="card-body">
-    <Link to="#" className="card-link">Card link</Link>
-    <Link to="#" className="card-link">Another link</Link>
-  </div>
-</div>
+        <table className="table table-bordered table-success table-striped w-50 mx-auto">
+          <thead>
+            <tr>
+              <th>Customer Id</th>
+              <th>Customer Name</th>
+              <th>Contact No</th>
+              <th>Email Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            {customer1.map((cus) => (
+              <tr key={cus.cusId}>
+                <td>{cus.cusId}</td>
+                <td>{cus.cusName}</td>
+                <td>{cus.cusContactNo}</td>
+                <td>{cus.login.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
      );
 }
  

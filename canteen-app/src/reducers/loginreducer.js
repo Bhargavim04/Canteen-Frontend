@@ -14,6 +14,8 @@ export const loginReducer = (state = initialState, action) => {
       return { ...state, errMsg: action.payload };  
     case "LOGOUT":
       return { ...state, login: action.payload };
+    case "GET_CUS_PROFILE":
+      return { ...state, customer: action.payload };
     default:
       return state;
   }

@@ -20,11 +20,11 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/foodItems">Food Items</NavLink>
           </li>
-          {login.loggedIn && login.role=="customer" && ( 
+          {/* {login.loggedIn && login.role=="customer" && ( 
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/address/add">Add Address</NavLink>
           </li>
-          )}
+          )} */}
         </ul>
         <form className="d-flex" role="search">
           <input className="form-control me-2" type="search" placeholder="Search Food" aria-label="Search" />

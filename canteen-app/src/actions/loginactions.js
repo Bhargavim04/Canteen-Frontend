@@ -24,7 +24,7 @@ export const registerAction = (customer) => async (dispatch) => {
 
 export const loginAction = (login) => (dispatch) => {
   axios
-    .post("http://localhost:8080/login/dto", login)
+    .post("http://localhost:8081/login/dto", login)
     .then((res) => {
       console.log(res);
       dispatch({
@@ -48,6 +48,17 @@ export const logoutAction = (email) => async (dispatch) => {
   console.log(result.data);
   dispatch({
     type: "LOGOUT",
+    payload: result.data,
+  });
+};
+
+// Get customer by id action
+export const getCustomerByIdAction = (id) => async (dispatch) => {
+  const result = await axios.get(`http://localhost:8081/customer/${id}`);
+  console.log(result);
+  console.log(result.data);
+  dispatch({
+    type: "GET_CUS_PROFILE",
     payload: result.data,
   });
 };
