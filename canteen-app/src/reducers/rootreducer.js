@@ -6,7 +6,7 @@ import addressReducer from "./addressreducer";
 
 const rootReducer = combineReducers({
   fakestore: productReducer,
-  fooditemdb: fooditemReducer,
+  fooditemstore: fooditemReducer,
   login: loginReducer,
   address: addressReducer
 });

@@ -12,7 +12,7 @@ const FoodItems = () => {
   }, []);
 
   // get products info from redux store
-  const foodItems1 = useSelector((state) => state.fooditemdb.fooditems);
+  const foodItems1 = useSelector((state) => state.fooditemstore.fooditems);
   console.log(foodItems1);
     return ( 
         <div className="container mt-3">

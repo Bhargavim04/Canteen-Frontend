@@ -7,7 +7,7 @@ const Nav = () => {
         return (
       <nav className="navbar navbar-expand-lg bg-dark p-2 navbar-dark bg-opacity-75">
         <div className="container-fluid">
-        <span className="navbar-brand mb-0 h1">Canteen</span>
+        <span className="navbar-brand mb-0 h1"><em>Canteen</em></span>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -15,16 +15,16 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
+            <NavLink className="nav-link" aria-current="page" to="/home">HOME</NavLink>
           </li> 
           <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/foodItems">Food Items</NavLink>
+            <NavLink className="nav-link" aria-current="page" to="/foodItems">FOOD ITEMS</NavLink>
           </li>
-          {/* {login.loggedIn && login.role=="customer" && ( 
+          {login.loggedIn && login.role=="admin" && ( 
           <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/address/add">Add Address</NavLink>
+            <NavLink className="nav-link" aria-current="page" to="/customers/view">CUSTOMERS</NavLink>
           </li>
-          )} */}
+          )}
         </ul>
         <form className="d-flex" role="search">
           <input className="form-control me-2" type="search" placeholder="Search Food" aria-label="Search" />
@@ -34,23 +34,29 @@ const Nav = () => {
           {login.loggedIn ? (
               <li className="nav-item">
                 <NavLink to="/logout" className="nav-link">
-                  Logout
+                  LOGOUT
                 </NavLink>
               </li>
             ) : (
               <li className="nav-item">
                 <NavLink to="/login" className="nav-link">
-                  Login
+                  LOGIN
                 </NavLink>
               </li>
             )}
 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/register">Register</NavLink>
-          </li>
-          
+            <NavLink className="nav-link" to="/register">REGISTER</NavLink>
+          </li> 
+          {login.loggedIn && (
+              <li className="nav-item">
+                <NavLink to="/profile" className="nav-link">
+                  PROFILE
+                </NavLink>
+              </li>
+            )}
           <button type="button" className="btn btn-primary btn-sm position-relative">
-          <NavLink className="nav-link" to="/cart"><i class="bi bi-cart"></i> Food Cart</NavLink>
+          <NavLink className="nav-link" to="/cart"><i class="bi bi-cart"></i> FOOD CART</NavLink>
           </button>
         </ul>
       </div>
