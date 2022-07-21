@@ -44,7 +44,7 @@ const Login = () => {
 
   // connect store to get login and errMsg info
 
-  const lgn = useSelector((state) => state.login);
+  const lgn = useSelector((state) => state.custstore);
 
   //setErrRes(useSelector((state) => state.login.errMsg));
 

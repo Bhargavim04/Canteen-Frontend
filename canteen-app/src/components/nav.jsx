@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
 const Nav = () => {
-  const login = useSelector((state) => state.login.login);
+  const login = useSelector((state) => state.custstore.login);
         return (
       <nav className="navbar navbar-expand-lg bg-dark p-2 navbar-dark bg-opacity-75">
         <div className="container-fluid">

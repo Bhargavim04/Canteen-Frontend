@@ -15,7 +15,7 @@ const Address = () => {
     pinCode: "",
   });
 
-  const customer = useSelector((state) => state.login.customer);
+  const customer = useSelector((state) => state.custstore.customer);
   console.log(customer.cusId);
   const handleChange = (event) => {
     const newCus = { ...cus };

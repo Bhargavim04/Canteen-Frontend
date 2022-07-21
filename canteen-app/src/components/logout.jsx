@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Logout = () => {
   const dispatch = useDispatch();
-  const login = useSelector((state) => state.login.login);
+  const login = useSelector((state) => state.custstore.login);
   console.log(login.email);
   useEffect(() => {
     dispatch(logoutAction(login.email));

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Profile = () => {
 
-  const login = useSelector((state) => state.login.login);
+  const login = useSelector((state) => state.custstore.login);
   console.log(login);
   const [cus, setCus] = useState({});
 
@@ -16,6 +16,8 @@ const Profile = () => {
       .catch((err) => console.log(err));
   }, []);
   console.log(cus);
+  // console.log(cus.address.length);
+  // let length = cus.address.length;
   return ( 
     <div>
       <div className="container mt-5">
@@ -42,11 +44,18 @@ const Profile = () => {
                   </td>
                   <td className="ps-3">{cus.cusContactNo}</td>
                 </tr>
+                <tr>
+                  <td>
+                    <b>Email Address: </b>
+                  </td>
+                  <td className="ps-3"></td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
-        {/* <div className="card w-50 mx-auto mt-3">
+        
+         {/* <div className="card w-50 mx-auto mt-3">
           <div className="d-flex justify-content-between card-header">
             <h5>Address<i class="bi bi-house-heart-fill"></i></h5>
             <h5>
@@ -56,47 +65,55 @@ const Profile = () => {
               <i className="bi bi-trash3 ms-2" type="button"></i>
             </h5>
           </div>
-
-          <div className="card-body">
+          
+          {cus.address.length<=0 ?
+          <Link to="#" className="btn btn-primary mb-2">
+          Add New Address
+          </Link>
+          :
+           <div className="card-body">
+            {cus.address.map((addr)=>(
             <table>
               <tbody>
                 <tr>
                   <td>
                     <b>House Number: </b>
                   </td>
-                  <td className="ps-3">{cus.address[0].houseNo}</td>
+                  <td className="ps-3">{addr.houseNo}</td>
                 </tr>
                 <tr>
                   <td>
                     <b>Street:</b>
                   </td>
-                  <td className="ps-3">{cus.address[0].street}</td>
+                  <td className="ps-3">{addr.street}</td>
                 </tr>
                 <tr>
                   <td>
                     <b>City: </b>
                   </td>
-                  <td className="ps-3">{cus.address[0].city}</td>
+                  <td className="ps-3">{addr.city}</td>
                 </tr>
                 <tr>
                   <td>
                     <b>State: </b>
                   </td>
-                  <td className="ps-3">{cus.address[0].state}</td>
+                  <td className="ps-3">{addr.state}</td>
                 </tr>
                 <tr>
                   <td>
                     <b>Pin Code: </b>
                   </td>
-                  <td className="ps-3">{cus.address[0].pinCode}</td>
+                  <td className="ps-3">{addr.pinCode}</td>
                 </tr>
               </tbody>
             </table>
+            ))}
           </div>
-        </div> */}
-
+          }
+        </div>   */}
+       
       </div>
-    </div>
+    </div> 
     
    );
 };
