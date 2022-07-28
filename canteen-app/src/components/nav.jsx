@@ -44,10 +44,11 @@ const Nav = () => {
                 </NavLink>
               </li>
             )}
-
+          {!login.loggedIn && (
           <li className="nav-item">
             <NavLink className="nav-link" to="/register">REGISTER</NavLink>
           </li> 
+          )}
           {login.loggedIn && (
               <li className="nav-item">
                 <NavLink to="/profile" className="nav-link">

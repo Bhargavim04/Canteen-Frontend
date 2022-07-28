@@ -48,7 +48,7 @@ const UpdateCustomer = () => {
         // alert user with msg
         alert("Updated details of " + res.data.cusName + " successfully!");
         // redirect to view customers page
-        navigate("/customers/view");
+        navigate("/profile");
       })
       .catch((error) => console.log(error));
   };

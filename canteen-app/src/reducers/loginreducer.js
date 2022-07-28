@@ -5,7 +5,7 @@ const initialState = {
   errMsg: "",
 };
 
-export const loginReducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case "REGISTER":
       return { ...state, customer: action.payload };
@@ -17,7 +17,11 @@ export const loginReducer = (state = initialState, action) => {
       return { ...state, login: action.payload };
     case "GET_CUS_PROFILE":
       return { ...state, customer: action.payload };
+    case "GET_CUS_BY_EMAIL":
+      return { ...state, customer: action.payload };
     default:
       return state;
   }
 };
+
+export default loginReducer;

@@ -66,7 +66,7 @@ const Address = () => {
       required />
     </div>
     <label htmlFor="state" className="form-label float-start">State</label>
-    <select className="form-select mb-2" 
+    <select className="form-select mb-2" size="1"
     aria-label="Default select example" 
     id="state"
     value={cus.state}

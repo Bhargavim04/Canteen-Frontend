@@ -1,23 +1,34 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getCustomerByEmailAction } from "../actions/loginactions";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-
+const cus = useSelector((state) => state.custstore.customer);
   const login = useSelector((state) => state.custstore.login);
   console.log(login);
-  const [cus, setCus] = useState({});
+  //const [cus, setCus] = useState({});
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8081/customer/email/${login.email}`)
-      .then((res) => setCus(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-  console.log(cus);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8081/customer/email/${login.email}`)
+  //     .then((res) => setCus(res.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
+  // console.log(cus);
   // console.log(cus.address.length);
   // let length = cus.address.length;
+
+  const dispatch = useDispatch();
+  //useEffect(func, [conditional stmt])
+  // dispatches getCustomerByEmailAction at the time of page loading
+  useEffect(() => {
+    dispatch(getCustomerByEmailAction(login.email));
+  }, []);
+
+  // get customer info from redux store
+  //const cus = useSelector((state) => state.custstore.customer);
+  console.log(cus);
   return ( 
     <div>
       <div className="container mt-5">
@@ -25,7 +36,9 @@ const Profile = () => {
           <div className="d-flex justify-content-between card-header">
             <h5>Personal Details</h5>
             <h5>
+               <Link to={`/customer/update/${cus.cusId}`}>
               <i className="bi bi-pencil-square"></i>
+              </Link>
             </h5>
           </div>
 
@@ -55,7 +68,7 @@ const Profile = () => {
           </div>
         </div>
         
-         {/* <div className="card w-50 mx-auto mt-3">
+        <div className="card w-50 mx-auto mt-3">
           <div className="d-flex justify-content-between card-header">
             <h5>Address<i class="bi bi-house-heart-fill"></i></h5>
             <h5>
@@ -67,7 +80,7 @@ const Profile = () => {
           </div>
           
           {cus.address.length<=0 ?
-          <Link to="#" className="btn btn-primary mb-2">
+          <Link to="/address/add" className="btn btn-primary mb-2">
           Add New Address
           </Link>
           :
@@ -110,7 +123,7 @@ const Profile = () => {
             ))}
           </div>
           }
-        </div>   */}
+        </div> 
        
       </div>
     </div> 

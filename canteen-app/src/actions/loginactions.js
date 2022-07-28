@@ -62,3 +62,14 @@ export const getCustomerByIdAction = (id) => async (dispatch) => {
     payload: result.data,
   });
 };
+
+// Get customer by email action
+export const getCustomerByEmailAction = (email) => async (dispatch) => {
+  const result = await axios.get(`http://localhost:8081/customer/email/${email}`);
+  console.log(result);
+  console.log(result.data);
+  dispatch({
+    type: "GET_CUS_BY_EMAIL",
+    payload: result.data,
+  });
+};
