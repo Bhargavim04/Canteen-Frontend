@@ -1,31 +1,38 @@
-import React, { Component } from 'react';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { getCustomerByEmailAction } from "../actions/loginactions";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
-class ProfilePage extends Component {
-    state = {
-    customer:{},
-    login:{}
-  };
+const Profile = () => {
 
-  componentDidMount() {
-    this.props.getCustomerByEmailAction(this.props.login.email);
-}
+  const login = useSelector((state) => state.custstore.login);
+  console.log(login);
+  
+  const dispatch = useDispatch();
+  //useEffect(func, [conditional stmt])
+  // dispatches getCustomerByEmailAction at the time of page loading
+  useEffect(() => {
+    console.log("Inside useEffect");
+    dispatch(getCustomerByEmailAction(login.email));
+  }, []);
 
-    render() {
-        const {cus}=this.state.customer;
-        console.log(this.props.customer); 
-        console.log(this.props.login);
+   let cus={};
+// setTimeout(()=>{
+//   const cus= useSelector((state) => state.custstore.customer)
+// }, 1000);
 
-        return (
-            <div>
+   cus = useSelector((state) => state.custstore.customer);
+  // get customer info from redux store
+  //const cus = useSelector((state) => state.custstore.customer);
+  console.log(cus);
+  return ( 
+    <div>
       <div className="container mt-5">
         <div className="card w-50 mx-auto">
           <div className="d-flex justify-content-between card-header">
             <h5>Personal Details</h5>
             <h5>
-               <Link to="#">
+               <Link to={`/customer/update/${cus.cusId}`}>
               <i className="bi bi-pencil-square"></i>
               </Link>
             </h5>
@@ -119,37 +126,8 @@ class ProfilePage extends Component {
         
       </div>
     </div> 
-        );
-    }
-}
+    
+   );
+};
  
-// funtion to get updates from store
-const mapStateToProps = (state) => {
-  
-  return {
-    login: state.custstore.login,
-    customer: state.custstore.customer,
-  };
-};
-
-// function to dispatch actions
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getCustomerByEmailAction:(login)=> getCustomerByEmailAction(login.email),
-//   };
-// };
-// function to dispatch actions
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getCustomerByEmailAction,
-//   };
-// };
-
-// function to dispatch actions
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getCustomerByEmailAction:(email)=>{dispatch(getCustomerByEmailAction(email))}
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps())(ProfilePage); // connect component to store
+export default Profile;

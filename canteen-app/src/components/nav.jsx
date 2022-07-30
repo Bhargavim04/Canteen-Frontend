@@ -17,8 +17,9 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/home">HOME</NavLink>
           </li> 
+
           <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/foodItems">FOOD ITEMS</NavLink>
+            <NavLink className="nav-link" aria-current="page" to="/foodItems">FOOD MENU</NavLink>
           </li>
           {login.loggedIn && login.role=="admin" && ( 
           <li className="nav-item">

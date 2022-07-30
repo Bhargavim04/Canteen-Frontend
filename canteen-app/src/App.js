@@ -11,11 +11,8 @@ import Cart from './components/cart';
 import NotFound from './components/notFound';
 import {Route,Routes,Navigate} from 'react-router-dom';
 import UpdateCustomer from './components/updateCustomer';
-import Product from './components/products';
-import ProductDetails from './components/productDetails';
 import Logout from './components/logout';
 import ProfilePage from './components/profilePage';
-
 function App() {
   return (
     <div className="App">
@@ -32,8 +29,6 @@ function App() {
         <Route path="/customers/view" element={<ViewCustomers />} />
         <Route path="/address/view" element={<ViewAddress />} />
         <Route path="/customer/update/:id" element={<UpdateCustomer />} />
-        <Route path="/products" element={<Product />} />
-        <Route path="/products/get/:id" element={<ProductDetails />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<NotFound />} />

@@ -21,10 +21,10 @@ const FoodItems = () => {
           <div className="row">
             {foodItems1.map((food) => (
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-start mb-4 ">
-                <Link
+                {/* <Link
                   to={`/fooditems/get/${food.foodId}`}
                   style={{ textDecoration: "none" }}
-                >
+                > */}
                   <div className="card h-100 ">
                     <img
                       src={food.foodImage}
@@ -36,12 +36,13 @@ const FoodItems = () => {
                     <div className="card-body">
                       <small className="card-title">{food.foodName}</small>
                     </div>
-                    <small className="card-title text-end">
+                    <small className="card-title ms-3">
                       <i className="bi bi-currency-rupee"></i>
                       {food.foodPrice}
                     </small>
+                    <Link to="/cart" class="btn btn-primary " aria-current="page">Add To Food Cart</Link>
                   </div>
-                </Link>
+                {/* </Link> */}
               </div>
             ))}
           </div>

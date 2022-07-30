@@ -2,6 +2,7 @@ const initialState = {
   customer: {},
   customers: [],
   login: {},
+  cust:{},
   errMsg: "",
 };
 
@@ -19,6 +20,10 @@ const loginReducer = (state = initialState, action) => {
       return { ...state, customer: action.payload };
     case "GET_CUS_BY_EMAIL":
       return { ...state, customer: action.payload };
+    case "GET_CUS_DETAILS_BY_EMAIL":
+      return { ...state, cust: action.payload };
+    case "GET_ALL_CUSTOMERS":
+      return { ...state, customers: action.payload };
     default:
       return state;
   }

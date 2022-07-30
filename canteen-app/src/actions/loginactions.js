@@ -73,3 +73,24 @@ export const getCustomerByEmailAction = (email) => async (dispatch) => {
     payload: result.data,
   });
 };
+
+// Get customer by email action
+export const getCustomerDtoByEmailAction = (email) => async (dispatch) => {
+  const result = await axios.get(`http://localhost:8081/customerDetails/email/${email}`);
+  console.log(result);
+  console.log(result.data);
+  dispatch({
+    type: "GET_CUS_DETAILS_BY_EMAIL",
+    payload: result.data,
+  });
+};
+
+// action to get all customers
+export const getAllCustomersAction = () => async (dispatch) => {
+  const response = await axios.get("http://localhost:8081/customers");
+  console.log(response.data);
+  dispatch({
+    type: "GET_ALL_CUSTOMERS",
+    payload: response.data,
+  });
+};
