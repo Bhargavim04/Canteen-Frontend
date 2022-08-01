@@ -82,15 +82,32 @@ const Login = () => {
     dispatch(loginAction(login));
 
     // Based on loggedIn state redirect user to home or any other page
+  //   setTimeout(() => {
+  //     if (lgn.login.loggedIn) {
+  //       alert("Logged in successfully!");
+  //       navigate("/foodItems");
+  //     } else {
+  //       console.log("*********" + lgn.errMsg);
+  //       setErrRes(lgn.errMsg);
+  //     }
+  //   }, 300);
+  // };
+
+  // Based on loggedIn state redirect user to home or any other page
     setTimeout(() => {
       if (lgn.login.loggedIn) {
-        alert("Logged in successfully!");
-        navigate("/foodItems");
+        if (lgn.login.role == "admin") {
+          alert("admin logged in successfully!");
+          navigate("/adminDashboard");
+        } else {
+          alert("Customer logged in successfully!");
+          navigate("/foodItems");
+        }
       } else {
         console.log("*********" + lgn.errMsg);
         setErrRes(lgn.errMsg);
       }
-    }, 300);
+    }, 500);
   };
   console.log(login);
 

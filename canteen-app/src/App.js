@@ -17,6 +17,7 @@ import Profile from './components/profile';
 import UpdateFoodItem from './components/updateFoodItem';
 import AddFoodItem from './components/addFoodItem';
 import FoodMenu from './components/foodMenu';
+import AdminDashboard from './components/adminDashboard';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
 
         <Route path="/address/add" element={<Address />} />
-        <Route path="/customers/view" element={<ViewCustomers />} />
+        <Route path="/viewCustomers" element={<ViewCustomers />} />
         <Route path="/address/view" element={<ViewAddress />} />
         <Route path="/customer/update/:id" element={<UpdateCustomer />} />
         <Route path="/logout" element={<Logout />} />
@@ -41,7 +42,7 @@ function App() {
         <Route path="/foodMenu" element={<FoodMenu />} />
         <Route path="/foodItem/add" element={<AddFoodItem />} />
         <Route path="/foodItem/update/:id" element={<UpdateFoodItem />} />
-
+        <Route path="/adminDashboard/*" element={<AdminDashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -48,7 +48,7 @@ const UpdateFoodItem = () => {
         // alert user with msg
         alert("Updated details of " + res.data.foodName + " successfully!");
         // redirect to view customers page
-        navigate("/profile");
+        navigate("/adminDashboard/foodMenu");
       })
       .catch((error) => console.log(error));
   };
