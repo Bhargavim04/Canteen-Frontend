@@ -13,6 +13,11 @@ import {Route,Routes,Navigate} from 'react-router-dom';
 import UpdateCustomer from './components/updateCustomer';
 import Logout from './components/logout';
 import ProfilePage from './components/profilePage';
+import Profile from './components/profile';
+import UpdateFoodItem from './components/updateFoodItem';
+import AddFoodItem from './components/addFoodItem';
+import FoodMenu from './components/foodMenu';
+
 function App() {
   return (
     <div className="App">
@@ -31,6 +36,12 @@ function App() {
         <Route path="/customer/update/:id" element={<UpdateCustomer />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/cus/profile" element={<Profile />} />
+
+        <Route path="/foodMenu" element={<FoodMenu />} />
+        <Route path="/foodItem/add" element={<AddFoodItem />} />
+        <Route path="/foodItem/update/:id" element={<UpdateFoodItem />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

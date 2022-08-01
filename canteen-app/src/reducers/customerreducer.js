@@ -1,18 +1,15 @@
 const initialState = {
   customer: {},
   customers: [],
-  login: {},
   cust:{},
   addr:[],
   errMsg: "",
 };
 
-const loginReducer = (state = initialState, action) => {
+const customerReducer = (state = initialState, action) => {
   switch (action.type) {
     case "REGISTER":
       return { ...state, customer: action.payload };
-    case "LOGIN":
-      return { ...state, login: action.payload };
     case "ERR_RES":
       return { ...state, errMsg: action.payload };  
     case "LOGOUT":
@@ -32,4 +29,4 @@ const loginReducer = (state = initialState, action) => {
   }
 };
 
-export default loginReducer;
+export default customerReducer;

@@ -76,11 +76,22 @@ export const getCustomerByEmailAction = (email) => async (dispatch) => {
 
 // Get customer by email action
 export const getCustomerDtoByEmailAction = (email) => async (dispatch) => {
-  const result = await axios.get(`http://localhost:8081/customerDetails/email/${email}`);
+  const result = await axios.get(`http://localhost:8081/customer/detail/email/${email}`);
   console.log(result);
   console.log(result.data);
   dispatch({
     type: "GET_CUS_DETAILS_BY_EMAIL",
+    payload: result.data,
+  });
+};
+
+// Get customer by email action
+export const getCustomerAddrByEmailAction = (email) => async (dispatch) => {
+  const result = await axios.get(`http://localhost:8081/customer/addr/email/${email}`);
+  console.log(result);
+  console.log(result.data);
+  dispatch({
+    type: "GET_CUS_ADDR_BY_EMAIL",
     payload: result.data,
   });
 };
