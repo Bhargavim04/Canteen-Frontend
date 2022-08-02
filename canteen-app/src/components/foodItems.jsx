@@ -5,6 +5,7 @@ import { addToCart } from '../actions/cartactions';
 import { Link } from "react-router-dom";
 
 const FoodItems = () => {
+  const login = useSelector((state) => state.custstore.login);
     const dispatch = useDispatch();
   //useEffect(func, [conditional stmt])
   // dispatches getAllProductsAction at the time of page loading
@@ -49,10 +50,11 @@ const FoodItems = () => {
                       <i className="bi bi-currency-rupee"></i>
                       {food.foodPrice}
                     </small>
+                    {login.loggedIn && login.role!="admin" && ( 
                     <Link to="/cart" class="btn btn-primary " aria-current="page"
                     onClick={() => send(food)}>Add To Food Cart</Link>
+                    )}
                   </div>
-                {/* </Link> */}
               </div>
             ))}
           </div>

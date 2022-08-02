@@ -82,11 +82,11 @@ const UpdateFoodItem = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="foodQuantity" className="form-label float-start">
-           Food Quantity</label>
+           Food Image</label>
             <input type="text" 
             className="form-control" 
             id="foodQuantity"
-            value={food.foodQuantity}
+            value={food.foodImage}
             name="foodQuantity"
             onChange={handleChange} 
             required />
