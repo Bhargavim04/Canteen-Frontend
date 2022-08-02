@@ -5,7 +5,11 @@ import { useSelector } from "react-redux";
 const Nav = () => {
   const login = useSelector((state) => state.custstore.login);
         return (
-      <nav className="navbar navbar-expand-lg bg-dark p-2 navbar-dark bg-opacity-75">
+        <div>
+        <header>
+          <img src="navheader.jpg" alt="image" height="200px" width="100%" />
+        </header>
+        <nav className="navbar navbar-expand-lg bg-dark p-2 navbar-dark bg-opacity-75">
         <div className="container-fluid">
         <span className="navbar-brand mb-0 h1"><em>Canteen</em></span>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -60,6 +64,7 @@ const Nav = () => {
       </div>
     </div>
   </nav>
+  </div>
         );
     };
  
