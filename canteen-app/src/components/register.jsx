@@ -73,15 +73,6 @@ const Register = () => {
     alert(cus.cusName +" Registered Successfully!");
     navigate("/login");
 
-    // setTimeout(() => {
-    //   if (lgn.login.email != cus.email) {
-    //     alert(cus.cusName +" Registered Successfully!");
-    //     navigate("/login");
-    //   } else {
-    //     console.log("*********" + lgn.errMsg);
-    //     setErrRes(lgn.errMsg);
-    //   }
-    // }, 300);
   };
   console.log(cus);
 
@@ -168,6 +159,6 @@ const Register = () => {
       </form>
       </div>
      );
-}
+    }
  
 export default Register;

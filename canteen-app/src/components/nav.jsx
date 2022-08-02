@@ -27,10 +27,6 @@ const Nav = () => {
           </li>
           )}
         </ul>
-        <form className="d-flex" role="search">
-          <input className="form-control me-2" type="search" placeholder="Search Food" aria-label="Search" />
-          <button className="btn btn-primary" type="submit">Search</button>
-        </form>
         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           {login.loggedIn ? (
               <li className="nav-item">
@@ -52,7 +48,7 @@ const Nav = () => {
           )}
           {login.loggedIn && (
               <li className="nav-item">
-                <NavLink to="/cus/profile" className="nav-link">
+                <NavLink to="/profile" className="nav-link">
                   PROFILE
                 </NavLink>
               </li>
