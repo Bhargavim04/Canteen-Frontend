@@ -46,7 +46,7 @@ class FoodMenu extends Component {
                         <th>FoodName</th>
                         <th>FoodImage</th>
                         <th>FoodPrice</th>
-                        <th>FoodQuantity</th>
+                        {/* <th>FoodQuantity</th> */}
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -57,7 +57,7 @@ class FoodMenu extends Component {
                     <td>{food.foodName}</td>
                     <td>{food.foodImage}</td>
                     <td>{food.foodPrice}</td>
-                    <td>{food.foodQuantity}</td>
+                    {/* <td>{food.foodQty}</td> */}
                     <td>
                     <Link to={`/foodItem/update/${food.foodId}`}>
                     <i className="bi bi-arrow-repeat me-3" type="button"></i>

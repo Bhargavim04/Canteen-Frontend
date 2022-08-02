@@ -21,15 +21,16 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/home">HOME</NavLink>
           </li> 
-
+          {login.loggedIn && login.role!="admin" && (
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/foodItems">FOOD MENU</NavLink>
           </li>
-          {login.loggedIn && login.role=="admin" && ( 
+          )}
+          {/* {login.loggedIn && login.role=="admin" && ( 
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/customers/view">CUSTOMERS</NavLink>
           </li>
-          )}
+          )} */}
         </ul>
         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           {login.loggedIn ? (
@@ -57,9 +58,11 @@ const Nav = () => {
                 </NavLink>
               </li>
             )}
+          {login.loggedIn && login.role=="customer" && ( 
           <button type="button" className="btn btn-primary btn-sm position-relative">
           <NavLink className="nav-link" to="/cart"><i class="bi bi-cart"></i> FOOD CART</NavLink>
           </button>
+          )}
         </ul>
       </div>
     </div>

@@ -37,7 +37,7 @@ const AddFoodItem = () => {
     .then((res) => {
         console.log(res);
         alert("Added new foodItems" + res.data.foodName + "Successfully");
-        navigate("/CanteenFood");
+        navigate("/adminDashboard/foodMenu");
      })
      .catch((error) => console.log(error));
       };
@@ -68,7 +68,7 @@ const AddFoodItem = () => {
        onChange={handleChange}
        />
   </div>
-  <div className="mb-3">
+  {/* <div className="mb-3">
     <label htmlFor="foodQuantity" className="form-label  float-start">FoodQuantity</label>
     <input 
     type="number"
@@ -78,7 +78,7 @@ const AddFoodItem = () => {
       name="foodQuantity"
       onChange={handleChange}
       />
-  </div>
+  </div> */}
   <div className="mb-3">
     <label  htmlFor="foodimage" className="form-label float-start">FoodImage</label>
     <input type="text" 

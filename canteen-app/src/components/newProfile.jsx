@@ -15,6 +15,7 @@ const NewProfile = () => {
   }, []);
   // get cust details from store
   const cus = useSelector((state) => state.custstore.customer);
+
   return (
     <div>
       <div className="container mt-5">
@@ -60,38 +61,38 @@ const NewProfile = () => {
           </div>
           
            <div className="card-body">
-            {cus.address.map((addresses)=>(
+            {cus.address.map((addr)=>(
             <table>
               <tbody>
                 <tr>
                   <td>
                     <b>House Number: </b>
                   </td>
-                  <td className="ps-3">{addresses.houseNo}</td>
+                  <td className="ps-3">{addr.houseNo}</td>
                 </tr>
                 <tr>
                   <td>
                     <b>Street:</b>
                   </td>
-                  <td className="ps-3">{addresses.street}</td>
+                  <td className="ps-3">{addr.street}</td>
                 </tr>
                 <tr>
                   <td>
                     <b>City: </b>
                   </td>
-                  <td className="ps-3">{addresses.city}</td>
+                  <td className="ps-3">{addr.city}</td>
                 </tr>
                 <tr>
                   <td>
                     <b>State: </b>
                   </td>
-                  <td className="ps-3">{addresses.state}</td>
+                  <td className="ps-3">{addr.state}</td>
                 </tr>
                 <tr>
                   <td>
                     <b>Pin Code: </b>
                   </td>
-                  <td className="ps-3">{addresses.pinCode}</td>
+                  <td className="ps-3">{addr.pinCode}</td>
                 </tr>
                 <tr>
                   <td>

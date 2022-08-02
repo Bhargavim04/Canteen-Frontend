@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import FoodMenu from "./foodMenu";
 import ViewCustomers from "./viewCustomers";
+import FoodItems from "./foodItems";
 
 const AdminDashboard = () => {
-  const [options, setOption] = useState(["FoodMenu", "ViewCustomers"]);
+  const [options, setOption] = useState(["FoodMenu", "ViewCustomers" ,"FoodItems"]);
   const [selOption, setSelOption] = useState("FoodMenu");
   return (
     <div className="container">
@@ -39,6 +40,7 @@ const AdminDashboard = () => {
             <Route path="" element={<FoodMenu />} />
             <Route path="foodMenu" element={<FoodMenu />} />
             <Route path="viewCustomers" element={<ViewCustomers />} />
+            <Route path="foodItems" element={<FoodItems />} />
           </Routes>
         </div>
       </div>

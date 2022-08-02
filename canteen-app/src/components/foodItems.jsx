@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { getAllFoodItemsAction } from '../actions/fooditemactions';
+import { addToCart } from '../actions/cartactions';
 import { Link } from "react-router-dom";
 
 const FoodItems = () => {
@@ -14,6 +15,14 @@ const FoodItems = () => {
   // get products info from redux store
   const foodItems1 = useSelector((state) => state.fooditemstore.fooditems);
   console.log(foodItems1);
+
+  const getData = useSelector((state) => state.cartReducer.carts);
+  console.log(getData);
+
+  const send = (e) => {
+    // console.log(e);
+    dispatch(addToCart(e));
+  };
     return ( 
         <div className="container mt-3">
       <div className="row">
@@ -40,7 +49,8 @@ const FoodItems = () => {
                       <i className="bi bi-currency-rupee"></i>
                       {food.foodPrice}
                     </small>
-                    <Link to="/cart" class="btn btn-primary " aria-current="page">Add To Food Cart</Link>
+                    <Link to="/cart" class="btn btn-primary " aria-current="page"
+                    onClick={() => send(food)}>Add To Food Cart</Link>
                   </div>
                 {/* </Link> */}
               </div>
