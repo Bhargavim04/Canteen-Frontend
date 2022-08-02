@@ -48,7 +48,7 @@ const Nav = () => {
           )}
           {login.loggedIn && (
               <li className="nav-item">
-                <NavLink to="/profile" className="nav-link">
+                <NavLink to="/new/profile" className="nav-link">
                   PROFILE
                 </NavLink>
               </li>

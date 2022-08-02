@@ -79,18 +79,7 @@ const UpdateCustomer = () => {
             onChange={handleChange} 
             required />
           </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label float-start">
-          Email address</label>
-          <input type="email" 
-          className="form-control" 
-          id="email" 
-          aria-describedby="emailHelp"
-          value={cus.email}
-          name="email"
-          onChange={handleChange}
-          required />
-        </div>
+        
         <div className="d-grid gap-2">
         <button type="submit" className="btn btn-primary">Update</button>
         </div>

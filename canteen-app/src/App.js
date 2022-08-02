@@ -10,11 +10,12 @@ import NotFound from './components/notFound';
 import {Route,Routes,Navigate} from 'react-router-dom';
 import UpdateCustomer from './components/updateCustomer';
 import Logout from './components/logout';
-import Profile from './components/profile';
 import UpdateFoodItem from './components/updateFoodItem';
 import AddFoodItem from './components/addFoodItem';
 import FoodMenu from './components/foodMenu';
 import AdminDashboard from './components/adminDashboard';
+import NewProfile from './components/newProfile';
+import Address from './components/addAddress';
 
 function App() {
   return (
@@ -27,11 +28,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
-
+        <Route path="/address/add" element={<Address />} />
         <Route path="/viewCustomers" element={<ViewCustomers />} />
         <Route path="/customer/update/:id" element={<UpdateCustomer />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/new/profile" element={<NewProfile />} />
+
         <Route path="/foodMenu" element={<FoodMenu />} />
         <Route path="/foodItem/add" element={<AddFoodItem />} />
         <Route path="/foodItem/update/:id" element={<UpdateFoodItem />} />

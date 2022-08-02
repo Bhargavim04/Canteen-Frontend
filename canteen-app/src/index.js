@@ -23,14 +23,22 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Create store
-const store = createStore(
+// const store = createStore(
+//   persistedReducer,
+//   compose(
+//     applyMiddleware(thunk),
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//   )
+// );
+
+// export store to access app store info from other component
+export const store = createStore(
   persistedReducer,
   compose(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
-
 // --create store for counter--
 //const store = createStore(
 //  rootReducer,
