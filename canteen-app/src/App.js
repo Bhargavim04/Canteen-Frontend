@@ -23,7 +23,7 @@ import UpdatePayment from "./components/UpdatePayment";
 import PaymentForm from './components/paymentForm';
 import NewPayment from './components/newPayment';
 import Card from './components/card';
-import Order from './components/order';
+import OrderForm from './components/OrderForm';
 
 function App() {
   return (
@@ -54,8 +54,9 @@ function App() {
         <Route path="paymentForm" element={<PaymentForm />} />
         <Route path="newPayment" element={<NewPayment/>} />
         <Route path="card" element={<Card/>} />
-        <Route path="order" element={<Order/>} />
-        
+    
+        <Route path="/OrderForm" element={<OrderForm/>} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

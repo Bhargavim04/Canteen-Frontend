@@ -9,6 +9,6 @@ describe("Home component test cases", () => {
     // Get title element by using testid
     const titleEle = component.getByTestId("title");
     // Compare title
-    expect(titleEle.textContent).toBe("Canteen Automation System");
+    expect(titleEle.textContent).toBe("Good Food! Good Mood! Have it Today..");
   }); //test-end
 });

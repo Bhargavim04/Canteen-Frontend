@@ -24,8 +24,6 @@ const NewPayment = () => {
         
   });
 
-  
-
   const handleChange = (event) => {
     console.log(event.target.name); // returns field name
     console.log(event.target.value); // retruns filed value
