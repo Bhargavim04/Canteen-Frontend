@@ -17,9 +17,9 @@ export const delFromCart = (foodId) => {
 };
 
 //  For remove individual item from cart
-export const remove = (item) => {
+export const decByOne = (item) => {
     return {
-        type: "REMOVE_CART",
+        type: "DEC_ONE",
         payload: item
     };
 };

@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCustomerByEmailAction } from "../actions/loginactions";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
  
 const NewProfile = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,28 @@ const NewProfile = () => {
   }, []);
   // get cust details from store
   const cus = useSelector((state) => state.custstore.customer);
+  const navigate = useNavigate();
+   // Delete address
+  const handleDelete = (addrId) => {
+    axios
+      .delete(`http://localhost:8081/address/${addrId}`)
+      .then((res) => {
+        console.log(res);
+        // return all customers except cus which is selected for delete
+        // const custs = this.state.customers.filter((cus) => cus.cusId != cusId);
 
+        // // update state object with customers
+        // this.setState({ customers: custs });
+        // alert("Customer with cusId " + cusId + " deleted successfully!");
+
+        const address = cus.address.filter((addr) => addr.addrId != addrId);
+        navigate("/foodItems");
+        this.state({ cus: address });
+        alert("Address deleted successfully!");
+        
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <div className="container mt-5">
@@ -92,7 +115,10 @@ const NewProfile = () => {
                   <td>
                     <b>Pin Code: </b>
                   </td>
-                  <td className="ps-3">{addr.pinCode}</td>
+                  <td className="ps-3">{addr.pinCode}
+                  <i className="bi bi-trash3-fill" type="button"
+                  onClick={() => handleDelete(addr.addrId)} ></i>
+                  </td>
                 </tr>
                 <tr>
                   <td>

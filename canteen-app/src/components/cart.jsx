@@ -8,7 +8,7 @@ import { connect, useSelector, useDispatch } from "react-redux";
 import { handleButton } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { delFromCart, remove } from "../actions/cartactions";
+import { delFromCart, decByOne } from "../actions/cartactions";
 import FoodItems from "./foodItems";
 
 const Cart = () => {
@@ -42,7 +42,7 @@ const Cart = () => {
   const cartTotal = () => {
     let price = 0;
     getData.map((ele, k) => {
-      price = ele.itemTotalPrice * ele.foodQty + price;
+      price = ele.foodPrice * ele.foodQty + price;
     });
     setPrice(price);
   };
@@ -53,100 +53,96 @@ const Cart = () => {
 
   // decreasing quantity
   const decrement = (item) => {
-    dispatch(remove(item));
+    dispatch(decByOne(item));
   };
 
   return (
     <div>
-      <div className="container mt-2">
-        <h1 className="text-center">Cart-Page</h1>
-        <section className="container mt-3">
-          <div className="itemdetails">
-            <p className="text-center">
-              <strong>Cart-Total: </strong>₹{price}
-            </p>
-            {getData.map((ele) => {
-              return (
-                <>
-                  <div className="item_img">
-                    <div className="card mb-3">
-                      <div className="row g-0">
-                        <div className="col-md-4">
-                          <div>
-                            <img
-                              src={ele.foodImage}
-                              className="img-fluid rounded-start"
-                              alt="..."
-                            />
+      <h1>Cart-Items</h1>
+      <div className="container mt-3">
+        <div className="row">
+          <div className="col-sm-12 col-md-10">
+            <div className="row">
+              <p className="text-center">
+                <strong>Cart-Total: </strong>₹{price}
+              </p>
+              <hr />
+              {getData.map((ele) => {
+                return (
+                  <div className="col-md-3 mb-4">
+                    <div className="card h-100 text-center p-4">
+                      <img
+                        src={ele.foodImage}
+                        className="img-fluid rounded-start"
+                        alt={ele.foodName}
+                        height="250px"
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title mb-0">{ele.foodName}</h5>
+                        <p className="card-text lead fw-bold">
+                          Price: ₹{ele.foodPrice}
+                        </p>
+                        <p className="card-text lead fw-bold">
+                          Item-Total: ₹{ele.foodPrice * ele.foodQty}
+                        </p>
+                        <p className="card-text lead fw-bold">
+                          Quantity: {ele.foodQty}
+                        </p>
+                        <p>
+                          <div
+                            className="mt-5 d-flex justify-content-between align-items-center"
+                            style={{
+                              width: 100,
+                              cursor: "pointer",
+                              background: "#ddd",
+                              color: "#111",
+                            }}
+                          >
+                            <span
+                              className="btn btn-outline-dark"
+                              style={{ fontSize: 24 }}
+                              onClick={
+                                ele.foodQty <= 1
+                                  ? () => dlt(ele.foodId)
+                                  : () => decrement(ele)
+                              }
+                            >
+                              -
+                            </span>
+                            <span style={{ fontSize: 22 }}>{ele.foodQty}</span>
+                            <span
+                              className="btn btn-outline-dark"
+                              style={{ fontSize: 24 }}
+                              onClick={() => send(ele)}
+                            >
+                              +
+                            </span>
                           </div>
-                          <div className="details">
-                            <div className="col-md-8">
-                              <div className="card-body">
-                                <h5 className="card-title">{ele.foodName}</h5>
-                                <p className="card-text">
-                                  Price: ₹{ele.foodPrice}
-                                </p>
-                                <p>
-                                  Item-Total: ₹
-                                  {ele.itemTotalPrice * ele.foodQty}
-                                </p>
-                                <p className="card-text">
-                                  Quantity: {ele.foodQty}
-                                </p>
-                                <div
-                                  className="mt-5 d-flex justify-content-between align-items-center"
-                                  style={{
-                                    width: 100,
-                                    cursor: "pointer",
-                                    background: "#ddd",
-                                    color: "#111",
-                                  }}
-                                >
-                                  <span
-                                    style={{ fontSize: 24 }}
-                                    onClick={
-                                      ele.foodQty < 1
-                                        ? () => dlt(ele)
-                                        : () => decrement(ele)
-                                    }
-                                  >
-                                    -
-                                  </span>
-                                  <span style={{ fontSize: 22 }}>
-                                    {ele.foodQty}
-                                  </span>
-                                  <span
-                                    style={{ fontSize: 24 }}
-                                    onClick={() => send(ele)}
-                                  >
-                                    +
-                                  </span>
-                                </div>
-                                <p>
-                                  <strong>Remove: </strong>
-                                  <span>
-                                    <i
-                                      className="bi bi-trash3"
-                                      style={{
-                                        fontSize: 25,
-                                        cursor: "pointer",
-                                      }}
-                                      onClick={() => dlt(ele.foodId)}
-                                    ></i>
-                                  </span>
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        </p>
+                        <p className="card-text lead fw-bold">
+                          Remove:
+                          <span>
+                            <i
+                              className="bi bi-trash3"
+                              style={{
+                                fontSize: 25,
+                                cursor: "pointer",
+                              }}
+                              onClick={() => dlt(ele.foodId)}
+                            ></i>
+                          </span>
+                        </p>
+                        <NavLink to={"/order"} className="btn btn-outline-dark">
+                          Proceed To Order
+                        </NavLink>
                       </div>
                     </div>
                   </div>
-                </>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );

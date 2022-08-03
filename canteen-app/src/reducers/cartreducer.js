@@ -30,7 +30,7 @@ const cartReducer = (state = INIT_STATE, action) => {
         carts: data,
       };
 
-      case "REMOVE_ONE":
+      case "DEC_ONE":
 
       const itemIndex_dec = state.carts.findIndex(
         (item) => item.foodId === action.payload.foodId
@@ -51,7 +51,7 @@ const cartReducer = (state = INIT_STATE, action) => {
         carts:data
       }
     }
-
+    break;
     default:
       return state
   }

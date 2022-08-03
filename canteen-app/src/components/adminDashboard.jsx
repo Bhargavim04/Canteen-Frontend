@@ -5,7 +5,7 @@ import ViewCustomers from "./viewCustomers";
 import FoodItems from "./foodItems";
 
 const AdminDashboard = () => {
-  const [options, setOption] = useState(["FoodMenu", "ViewCustomers" ,"FoodItems"]);
+  const [options, setOption] = useState(["FoodMenu","FoodItems", "ViewCustomers" ]);
   const [selOption, setSelOption] = useState("FoodMenu");
   return (
     <div className="container">
@@ -39,8 +39,8 @@ const AdminDashboard = () => {
           <Routes>
             <Route path="" element={<FoodMenu />} />
             <Route path="foodMenu" element={<FoodMenu />} />
-            <Route path="viewCustomers" element={<ViewCustomers />} />
             <Route path="foodItems" element={<FoodItems />} />
+            <Route path="viewCustomers" element={<ViewCustomers />} />
           </Routes>
         </div>
       </div>

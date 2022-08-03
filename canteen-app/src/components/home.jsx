@@ -6,7 +6,7 @@ class Home extends Component {
     render() { 
         return (
             <div className='fs-1'>
-                <p><em>Canteen Automation System</em></p>
+                <p data-testid="title"><em>Canteen Automation System</em></p>
             </div>
         );
     }

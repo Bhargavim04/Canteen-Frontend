@@ -54,22 +54,6 @@ const Login = () => {
     setLogin(newLogin);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // Step3: Call validate function
-  //   // validate login details with schema
-  //   setErrors(validate());
-
-  //   if (errors) return;
-
-  //   // dispatch login action to server
-  //   dispatch(loginAction(login));
-
-  //   alert("Logged in successfully!");
-  //   navigate("/foodItems");
-
-  // };
-  // console.log(login);
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Step3: Call validate function
@@ -80,18 +64,6 @@ const Login = () => {
 
     // dispatch login action to rest api
     dispatch(loginAction(login));
-
-    // Based on loggedIn state redirect user to home or any other page
-  //   setTimeout(() => {
-  //     if (lgn.login.loggedIn) {
-  //       alert("Logged in successfully!");
-  //       navigate("/foodItems");
-  //     } else {
-  //       console.log("*********" + lgn.errMsg);
-  //       setErrRes(lgn.errMsg);
-  //     }
-  //   }, 300);
-  // };
 
   // Based on loggedIn state redirect user to home or any other page
     setTimeout(() => {
@@ -118,13 +90,13 @@ const Login = () => {
         onSubmit={handleSubmit}
         className="w-25 mx-auto border border-secondary rounded mt-4 p-2 shadow-lg p-3 mb-5 bg-body rounded"
       >
-        <p className="text-center fs-4 bg-primary text-white">Login Form</p>
+        <p className="text-center fs-4 bg-primary text-white" data-testid="title">Login Form</p>
 
         <div className="input-group mb-3">
         <span className="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
         <input type="email" 
         className="form-control" 
-        placeholder="Email Address"
+        placeholder="EmailAddress"
         id="email"
         value={login.email}
         name="email"
