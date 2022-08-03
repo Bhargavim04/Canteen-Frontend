@@ -11,17 +11,7 @@ export const registerAction = (customer) => async (dispatch) => {
   });
 };
 
-// login action
-// export const loginAction = (login) => async (dispatch) => {
-//   const result = await axios.post("http://localhost:8081/login/dto", login);
-//   console.log(result);
-//   console.log(result.data);
-//   dispatch({
-//     type: "LOGIN",
-//     payload: result.data,
-//   });
-// };
-
+//login action
 export const loginAction = (login) => (dispatch) => {
   axios
     .post("http://localhost:8081/login/dto", login)
@@ -71,37 +61,5 @@ export const getCustomerByEmailAction = (email) => async (dispatch) => {
   dispatch({
     type: "GET_CUS_BY_EMAIL",
     payload: result.data,
-  });
-};
-
-// Get customer by email action
-export const getCustomerDtoByEmailAction = (email) => async (dispatch) => {
-  const result = await axios.get(`http://localhost:8081/customer/detail/email/${email}`);
-  console.log(result);
-  console.log(result.data);
-  dispatch({
-    type: "GET_CUS_DETAILS_BY_EMAIL",
-    payload: result.data,
-  });
-};
-
-// Get customer by email action
-export const getCustomerAddrByEmailAction = (email) => async (dispatch) => {
-  const result = await axios.get(`http://localhost:8081/customer/addr/email/${email}`);
-  console.log(result);
-  console.log(result.data);
-  dispatch({
-    type: "GET_CUS_ADDR_BY_EMAIL",
-    payload: result.data,
-  });
-};
-
-// action to get all customers
-export const getAllCustomersAction = () => async (dispatch) => {
-  const response = await axios.get("http://localhost:8081/customers");
-  console.log(response.data);
-  dispatch({
-    type: "GET_ALL_CUSTOMERS",
-    payload: response.data,
   });
 };

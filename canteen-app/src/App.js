@@ -16,6 +16,14 @@ import FoodMenu from './components/foodMenu';
 import AdminDashboard from './components/adminDashboard';
 import NewProfile from './components/newProfile';
 import Address from './components/addAddress';
+import AddPayment from "./components/addPayment";
+import Payments from "./components/payments";
+import PaymentTable from "./components/paymentTable";
+import UpdatePayment from "./components/UpdatePayment";
+import PaymentForm from './components/paymentForm';
+import NewPayment from './components/newPayment';
+import Card from './components/card';
+import Order from './components/order';
 
 function App() {
   return (
@@ -38,6 +46,16 @@ function App() {
         <Route path="/foodItem/add" element={<AddFoodItem />} />
         <Route path="/foodItem/update/:id" element={<UpdateFoodItem />} />
         <Route path="/adminDashboard/*" element={<AdminDashboard />} />
+
+        <Route path="/payments" element={<Payments />} />
+        <Route path="/paymentTable" element={<PaymentTable />} />
+        <Route path="/payment/add" element={<AddPayment />} />
+        <Route path="/payment/update/:id" element={<UpdatePayment/>} />
+        <Route path="paymentForm" element={<PaymentForm />} />
+        <Route path="newPayment" element={<NewPayment/>} />
+        <Route path="card" element={<Card/>} />
+        <Route path="order" element={<Order/>} />
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
