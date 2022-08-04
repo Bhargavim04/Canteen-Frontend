@@ -37,7 +37,7 @@ class ViewCustomers extends Component {
     render() { 
         return (
           <div>
-          <h1 >Customers Details</h1>
+          <h1 >Users Details</h1>
           <CustomerTable 
           customers={this.state.customers}
           handleDelete={this.handleDelete} />

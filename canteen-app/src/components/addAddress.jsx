@@ -75,26 +75,6 @@ const Address = () => {
       onChange={handleChange} 
       required />
     </div>
-    {/* <label htmlFor="state" className="form-label float-start">State</label>
-    <select className="form-select mb-2" size="1"
-    aria-label="Default select example" 
-    id="state"
-    value={cus.state}
-    name="state"
-    onChange={handleChange} 
-    >
-        <option selected disabled>Select state</option>
-        <option value="Karnataka">Karnataka</option>
-        <option value="Tamil Nadu">Tamil Nadu</option>
-        <option value="Andhra Pradesh">Andhra Pradesh</option>
-        <option value="Telangana">Telangana</option>
-        <option value="Kerala">Kerala</option>
-        <option value="Uttar Pradesh">Uttar Pradesh</option>
-        <option value="Maharashtra">Maharashtra</option>
-        <option value="Bihar">Bihar</option>
-        <option value="Tripura">Tripura</option>
-        <option value="Gujarat">Gujarat</option>
-    </select> */}
     <div className="mb-3">
         <label htmlFor="pinCode" className="form-label float-start">Pincode</label>
         <input type="text" 

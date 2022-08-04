@@ -6,9 +6,6 @@ class Home extends Component {
     render() { 
         
         return (
-            // <div className='fs-1'>
-            //     <p data-testid="title"><em>Canteen Automation System</em></p>
-            // </div>
             <div>
       <div className="hero">
         <div className="card bg-dark text-white border-0">
@@ -20,15 +17,12 @@ class Home extends Component {
           />
           <div className="card-img-overlay d-flex flex-column justify-content">
             <div className="container">
-              <p className="card-text lead fs-2" data-testid="title">
-                Good Food! Good Mood! Have it Today..
-              </p>
+              <p className="card-text lead fs-2" data-testid="title">Good Food! Good Mood! Have it Today..</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-            
+    </div>      
         );
     }
 }

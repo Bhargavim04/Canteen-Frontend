@@ -44,7 +44,7 @@ const NewProfile = () => {
       <div className="container mt-5">
         <div className="card w-50 mx-auto">
           <div className="d-flex justify-content-between card-header">
-            <h5>Personal Details</h5>
+            <h5 data-testid="title">Personal Details</h5>
             <h5>
               <Link to={`/customer/update/${cus.cusId}`}>
               <i className="bi bi-pencil-square"></i>

@@ -2,6 +2,7 @@
 import { useParams, useNavigate } from "react-router-dom";
  import axios from "axios";
 import { Link } from "react-router-dom";
+import { useSelector} from "react-redux";
 
 const NewPayment = () => {
    // value, name, handleOnChange(), handleSubmit()
@@ -69,22 +70,40 @@ const NewPayment = () => {
       .catch((error) => console.log(error));
   };
   console.log(payment);
-    return ( 
-        <div>
+  const getData = useSelector((state) => state.cartReducer.carts);
+  const [price, setPrice] = useState(0);
+  console.log(price);
+  // Setting price of items
+  const cartTotal = () => {
+    let price = 0;
+    getData.map((ele, k) => {
+      price = ele.foodPrice * ele.foodQty + price;
+    });
+    setPrice(price);
+  };
 
+  useEffect(() => {
+    cartTotal();
+  }, [cartTotal]);
+    return (
+        <div>
+          <h1>Payment Page</h1>
+          <p className="text-center">
+                <strong>Cart-Total: </strong>₹{price}
+              </p>
+        <div>
             <form className="w-25 mx-auto border border-primary m-2 px-3 pb-2 shadow-lg p-3 mb-5 bg-body rounded" 
         onSubmit={handleSubmit}>
             
           <div>
-        <Link to={`/card`}>
-                  <i className="bi bi-circle me-3"></i>
-                </Link>
-        {/* <div className="mb-3" class="bi bi-circle" type="button"> */}
-           <label htmlFor="Creditcard" className="form-label ms-2 float-start">
+              <Link to={`/payWithCard`}>
+                <i className="bi bi-circle me-3"></i>
+              </Link>
+              <label htmlFor="Creditcard" className="form-label ms-2 float-start">
               Creditcard</label>
-           </div><br/>
+          </div><br/>
 
-          <div>
+          {/* <div>
              <Link to={`/card`}>
                   <i className="bi bi-circle me-3"></i>
                 </Link>
@@ -108,18 +127,17 @@ const NewPayment = () => {
   
         <label htmlFor="Net Banking" className="form-label ms-2 float-start">
         Net Bank</label>
-        </div><br/>
-
+        </div><br/> */}
                <div>
                 <Link to={`/order`}>
                 <i className="bi bi-circle me-3"></i>
-                </Link>
-                
+                </Link> 
         <label htmlFor="Cash " className="form-label ms-2 float-start">
          Cash Pay</label>
         </div>
         </form> 
       </div>
+      </div> 
      );
     }
 

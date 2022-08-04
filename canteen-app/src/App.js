@@ -16,14 +16,20 @@ import FoodMenu from './components/foodMenu';
 import AdminDashboard from './components/adminDashboard';
 import NewProfile from './components/newProfile';
 import Address from './components/addAddress';
-import AddPayment from "./components/addPayment";
-import Payments from "./components/payments";
-import PaymentTable from "./components/paymentTable";
-import UpdatePayment from "./components/UpdatePayment";
-import PaymentForm from './components/paymentForm';
 import NewPayment from './components/newPayment';
 import Card from './components/card';
 import OrderForm from './components/OrderForm';
+import Order from './components/Order';
+import AddOrders from './components/AddOrder';
+import UpdateOrder from './components/UpdateOrder';
+
+import Pay from "./components/pay";
+import PayWithCard from "./components/payWithCard";
+import Addcard from "./components/addcard";
+import CardTable from "./components/cardTable";
+import UpdateCard from "./components/updatecard";
+import ViewCard from"./components/viewCard";
+import CardDetailsById from "./components/cardDetailsById";
 
 function App() {
   return (
@@ -47,15 +53,21 @@ function App() {
         <Route path="/foodItem/update/:id" element={<UpdateFoodItem />} />
         <Route path="/adminDashboard/*" element={<AdminDashboard />} />
 
-        <Route path="/payments" element={<Payments />} />
-        <Route path="/paymentTable" element={<PaymentTable />} />
-        <Route path="/payment/add" element={<AddPayment />} />
-        <Route path="/payment/update/:id" element={<UpdatePayment/>} />
-        <Route path="paymentForm" element={<PaymentForm />} />
-        <Route path="newPayment" element={<NewPayment/>} />
-        <Route path="card" element={<Card/>} />
+        <Route path="/newPayment" element={<NewPayment/>} />
     
         <Route path="/OrderForm" element={<OrderForm/>} />
+        <Route path="/order" element={<Order/>} />
+        <Route path="/add" element={<AddOrders/>} />
+        <Route path="/update/:id" element={<UpdateOrder/>} />
+
+        <Route path="/pay" element={<Pay />} />
+        <Route path="/card" element={<Card/>}/>
+        <Route path="/card/add" element={<Addcard />} />
+        <Route path="/cardTable" element={<CardTable/>}/>
+        <Route path="/payWithCard" element={<PayWithCard/>}/>
+        <Route path="/viewCard" element={<ViewCard/>}/>
+        <Route path="/cardDetailsById" element={<CardDetailsById/>}/>
+        <Route path="/card/update/:id" element={<UpdateCard />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

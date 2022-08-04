@@ -66,6 +66,9 @@ const Cart = () => {
               <p className="text-center">
                 <strong>Cart-Total: </strong>₹{price}
               </p>
+              <NavLink to={"/newPayment"} className="btn btn-outline-dark">
+                          Proceed To Order
+                        </NavLink>
               <hr />
               {getData.map((ele) => {
                 return (
@@ -132,9 +135,9 @@ const Cart = () => {
                             ></i>
                           </span>
                         </p>
-                        <NavLink to={"/order"} className="btn btn-outline-dark">
+                        {/* <NavLink to={"/newPayment"} className="btn btn-outline-dark">
                           Proceed To Order
-                        </NavLink>
+                        </NavLink> */}
                       </div>
                     </div>
                   </div>
