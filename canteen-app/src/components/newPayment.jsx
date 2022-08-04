@@ -85,6 +85,7 @@ const NewPayment = () => {
   useEffect(() => {
     cartTotal();
   }, [cartTotal]);
+
     return (
         <div>
           <h1>Payment Page</h1>
@@ -102,32 +103,6 @@ const NewPayment = () => {
               <label htmlFor="Creditcard" className="form-label ms-2 float-start">
               Creditcard</label>
           </div><br/>
-
-          {/* <div>
-             <Link to={`/card`}>
-                  <i className="bi bi-circle me-3"></i>
-                </Link>
-           <label htmlFor="Creditcard" className="form-label ms-2 float-start">
-              Debitcard</label>
-           </div><br/>
-
-           <div>
-            <Link to={`/card`}>
-                  <i className="bi bi-circle me-3"></i>
-                </Link>
-           <label htmlFor="Creditcard" className="form-label ms-2 float-start">
-              ATM Card</label>
-           </div><br/>
-
-
-        <div>
-        <Link to={`/card`}>
-                  <i className="bi bi-circle me-3"></i>
-                </Link>
-  
-        <label htmlFor="Net Banking" className="form-label ms-2 float-start">
-        Net Bank</label>
-        </div><br/> */}
                <div>
                 <Link to={`/order`}>
                 <i className="bi bi-circle me-3"></i>

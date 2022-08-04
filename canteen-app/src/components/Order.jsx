@@ -1,42 +1,43 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { getCustomerByEmailAction } from "../actions/loginactions";
+import { useSelector , useDispatch} from "react-redux";
+import { store } from "../index";
 
 import OrderTable from "./OrderTable";
 
 const Order = () => {
-  const [orders, setOrders] = useState();
+ const [ order,setOrder ] = useState({
+  "cusId": 0,
+  "foodItems": [
+    {
+      "foodId": 0,
+      "foodName": "string",
+      "foodImage": "string",
+      "foodPrice": 0,
+      "foodQty": 0,
+      "itemTotalPrice": 0
+    }
+  ]});
+  const dispatch = useDispatch();
+  // get login info from store
+  const login = useSelector((state) => state.custstore.login);
+  // get cust details based on email using dispatch action
+  useEffect(() => {
+    const email = store.getState().custstore.login.email;
+    dispatch(getCustomerByEmailAction(email));
+  }, []);
+  // get cust details from store
+  const cus = useSelector((state) => state.custstore.customer);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8083/order")
-      .then((response) => {
-        console.log(response);
-        setOrders(response.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  // Delete Employee
-  const handleDelete = (orderId) => {
-    axios
-      .delete(`http://localhost:8083/order/${orderId}`)
-      .then((res) => {
-        console.log(res);
-        // return all orders except emp which is selected for delete
-      })
-      .catch((err) => console.log(err));
-    const filteredOrders = orders.filter((order) => order.orderId != orderId);
-    // update state object with orders
-    setOrders(filteredOrders);
-    alert("Order with orderId " + orderId + " deleted successfully!");
-  };
-
-  console.log("orders", orders);
-
+    axios.post("http://localhost:8081/order/dto",order)
+  });
+    
   return (
     <div className="w-50 mx-auto">
-      <h4 className="mt-3">Order Details</h4>
-      {orders && <OrderTable orders={orders} handleDelete={handleDelete} />}
+      <h4 className="mt-3">Order Placed Successfully..</h4>
+      
     </div>
   );
 };

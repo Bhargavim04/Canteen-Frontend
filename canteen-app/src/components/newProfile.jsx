@@ -24,13 +24,6 @@ const NewProfile = () => {
       .delete(`http://localhost:8081/address/${addrId}`)
       .then((res) => {
         console.log(res);
-        // return all customers except cus which is selected for delete
-        // const custs = this.state.customers.filter((cus) => cus.cusId != cusId);
-
-        // // update state object with customers
-        // this.setState({ customers: custs });
-        // alert("Customer with cusId " + cusId + " deleted successfully!");
-
         const address = cus.address.filter((addr) => addr.addrId != addrId);
         navigate("/foodItems");
         this.state({ cus: address });
@@ -79,7 +72,6 @@ const NewProfile = () => {
               <Link to="/address/add">
                 <i class="bi bi-file-plus"></i>
               </Link>
-              {/* <i className="bi bi-trash3 ms-2" type="button"></i> */}
             </h5>
           </div>
           

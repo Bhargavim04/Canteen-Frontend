@@ -55,11 +55,11 @@ const PayWithCard = () => {
     //console.log(result);
 
     axios
-      .post("http://localhost:8081/CardDetails", newCrd)
+      .post("http://localhost:8081/cardDetails", newCrd)
       .then((res) => {
         console.log(res);
         alert("submitted  successfully!");
-        navigate("/viewCard");
+        navigate("/order");
       })
       .catch((error) => console.log(error));
   };
@@ -68,9 +68,7 @@ const PayWithCard = () => {
     <div>
         <form class="w-25 mx-auto border border-secondary rounded mt-4 p-2 shadow-lg p-3 mb-5 bg-body rounded"onSubmit={handleSubmit}>
           <p class="text-center fs-4 bg-secondary text-white">PayWithCard </p>
-    
-       
-        <div className="mb-3">
+         <div className="mb-3">
           <label htmlFor="cardId" className="form-label float-start">
             Card Id
           </label>
@@ -82,7 +80,7 @@ const PayWithCard = () => {
             name="cardId"
             onChange={handleChange}
           />
-        </div> 
+        </div>  
         <div className="mb-3">
           <label htmlFor="cardBankName" className="form-label float-start">
             CardBankName
@@ -96,9 +94,6 @@ const PayWithCard = () => {
             onChange={handleChange}
           />
         </div>
-        
-        
-        
         <div className="mb-3">
           <label htmlFor="name" className="form-label float-start">
             CardHolderName
@@ -111,10 +106,8 @@ const PayWithCard = () => {
             name="cardHolderName"
             onChange={handleChange}
           />
-          
            </div>
-        
-        <div className="mb-3">
+          <div className="mb-3">
           <label htmlFor="cardNo" className="form-label float-start">
             cardNo
           </label>
@@ -127,8 +120,6 @@ const PayWithCard = () => {
             onChange={handleChange}
           />
         </div>
-
-        
         <div className="mb-3">
           <label htmlFor="cvv" className="form-label float-start">
             cvv
